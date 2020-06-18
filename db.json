@@ -1,0 +1,39 @@
+{
+    "tasks": [
+      {
+        "id": 1,
+        "name": "Iniciar sesión",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "estimated": "8",
+        "worked": "10"
+      },
+      {
+        "id": 2,
+        "name": "Configurar entorno",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "estimated": "12",
+        "worked": "11"
+      },
+      {
+        "id": 3,
+        "name": "Instalar dependencias",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "estimated": "9",
+        "worked": "9"
+      },
+      {
+        "id": 4,
+        "name": "Levantar proyecto",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "estimated": "1",
+        "worked": "2"
+      },
+      {
+        "id": 5,
+        "name": "Corregir errores",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "estimated": "14",
+        "worked": "24"
+      }
+    ]
+  }
