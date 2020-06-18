@@ -29,10 +29,18 @@ export default function (state = initialState, action) {
                 tasks: [...state.tasks, action.payload]
             }
         case ADD_TASK_ERROR:
+        case DOWNLOAD_TASKS_ERROR:
             return {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case DOWNLOAD_TASKS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                tasks: action.payload
             }
         default:
             return state;

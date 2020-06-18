@@ -64,10 +64,27 @@ const addTaskError = (state) => ({
 export function getTasksAction() {
     return async (dispatch) => {
         dispatch(downloadTasks());
+        try {
+            const response = await axiosClient.get('/tasks');
+            dispatch(downloadTasksSuccess(response.data));
+        } catch (error) {
+            console.log(error);
+            dispatch(downloadTasksError());   
+        }
     }
 }
 
 const downloadTasks = () => ({
     type: START_DOWNLOAD_TASKS,
+    payload: true
+});
+
+const downloadTasksSuccess = (tasks) => ({
+    type: DOWNLOAD_TASKS_SUCCESS,
+    payload: tasks
+});
+
+const downloadTasksError = () => ({
+    type: DOWNLOAD_TASKS_ERROR,
     payload: true
 })

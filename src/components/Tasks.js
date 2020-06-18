@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { getTasksAction } from '../actions/taskActions';
 
 const Tasks = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        // consult API
+        const loadTasks = () => dispatch(getTasksAction());
+        loadTasks();
+    }, []);
+
     return (  
         <>
             <h2 className="text-center my-5">Listado de Tareas</h2>
