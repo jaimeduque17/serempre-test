@@ -1,6 +1,26 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Redux actions
+import { createTaskAction } from '../actions/taskActions';
 
 const NewTask = () => {
+
+    // useDispatch return a function
+    const dispatch = useDispatch();
+
+    // call the action of taskAction
+    const addTask = () => dispatch(createTaskAction());
+
+    const submitNewTask = e => {
+        e.preventDefault();
+
+        // validate form
+
+        // create new task
+        addTask();
+    }
+
     return (
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -9,7 +29,9 @@ const NewTask = () => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Agregar Nueva Tarea
                         </h2>
-                        <form>
+                        <form
+                            onSubmit={submitNewTask}
+                        >
                             <div className="form-group">
                                 <label>Nombre Tarea</label>
                                 <input
