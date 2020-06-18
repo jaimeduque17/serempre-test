@@ -28,4 +28,7 @@ const addTaskSuccess = (task) => ({
 });
 
 // if there was an error
-const addTaskError = () => {}
+const addTaskError = (state) => ({
+    type: ADD_TASK_ERROR,
+    payload: state
+});

@@ -24,6 +24,12 @@ export default function (state = initialState, action) {
                 loading: false,
                 tasks: [...state.tasks, action.payload]
             }
+        case ADD_TASK_ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
         default:
             return state;
     }
