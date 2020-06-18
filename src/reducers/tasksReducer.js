@@ -34,6 +34,7 @@ export default function (state = initialState, action) {
             }
         case ADD_TASK_ERROR:
         case DOWNLOAD_TASKS_ERROR:
+        case GET_TASK_ERROR:
             return {
                 ...state,
                 loading: false,
@@ -50,6 +51,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 deletetask: action.payload
+            }
+        case GET_TASK_SUCCESS:
+            return {
+                ...state,
+                tasks: state.tasks.filter( task => task.id !== state.deletetask),
+                deletetask: null
             }
         default:
             return state;

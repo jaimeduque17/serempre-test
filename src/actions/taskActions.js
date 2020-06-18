@@ -96,10 +96,26 @@ const downloadTasksError = () => ({
 export function deleteTaskAction(id) {
     return async (dispatch) => {
         dispatch(getTaskDelete(id));
+
+        try {
+            await axiosClient.delete(`/tasks/${id}`);
+            dispatch(deleteTaskSuccess());
+        } catch (error) {
+            
+        }
     }
 }
 
 const getTaskDelete = (id) => ({
     type: GET_TASK_DELETE,
     payload: id
+});
+
+const deleteTaskSuccess = () => ({
+    type: GET_TASK_SUCCESS
+});
+
+const deleteTaskError = () => ({
+    type: GET_TASK_ERROR,
+    payload: true
 });
