@@ -6,7 +6,26 @@ import {
 
 // create new tasks
 export function createTaskAction(task) {
-    return () => {
-        console.log(task);
+    return (dispatch) => {
+        dispatch(addTask());
+        try {
+            dispatch(addTaskSuccess(task));
+        } catch (error) {
+            dispatch(addTaskError(true));
+        }
     }
 }
+
+const addTask = () => ({
+    type: ADD_TASK,
+    payload: true
+});
+
+// if the product is saved in the DB
+const addTaskSuccess = (task) => ({
+    type: ADD_TASK_SUCCESS,
+    payload: task
+});
+
+// if there was an error
+const addTaskError = () => {}
