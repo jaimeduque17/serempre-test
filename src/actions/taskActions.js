@@ -2,7 +2,10 @@ import Swal from 'sweetalert2';
 import {
     ADD_TASK,
     ADD_TASK_SUCCESS,
-    ADD_TASK_ERROR
+    ADD_TASK_ERROR,
+    START_DOWNLOAD_TASKS,
+    DOWNLOAD_TASKS_SUCCESS,
+    DOWNLOAD_TASKS_ERROR
 } from '../types';
 import axiosClient from '../config/axios';
 
@@ -56,3 +59,15 @@ const addTaskError = (state) => ({
     type: ADD_TASK_ERROR,
     payload: state
 });
+
+// function to download the tasks of the DB
+export function getTasksAction() {
+    return async (dispatch) => {
+        dispatch(downloadTasks());
+    }
+}
+
+const downloadTasks = () => ({
+    type: START_DOWNLOAD_TASKS,
+    payload: true
+})
