@@ -5,8 +5,8 @@ import {
 } from '../types';
 
 // create new tasks
-export function createTaskAction() {
+export function createTaskAction(task) {
     return () => {
-        console.log('from action');
+        console.log(task);
     }
 }
