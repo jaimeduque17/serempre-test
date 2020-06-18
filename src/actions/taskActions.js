@@ -3,14 +3,22 @@ import {
     ADD_TASK_SUCCESS,
     ADD_TASK_ERROR
 } from '../types';
+import axiosClient from '../config/axios';
 
 // create new tasks
 export function createTaskAction(task) {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(addTask());
         try {
+            // insert in the API
+            await axiosClient.post('tasks', task);
+
+            // update the state if all gonna be okay
             dispatch(addTaskSuccess(task));
         } catch (error) {
+            console.log(error);
+
+            // if there is an error change the state
             dispatch(addTaskError(true));
         }
     }
