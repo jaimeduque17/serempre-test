@@ -5,7 +5,10 @@ import {
     ADD_TASK_ERROR,
     START_DOWNLOAD_TASKS,
     DOWNLOAD_TASKS_SUCCESS,
-    DOWNLOAD_TASKS_ERROR
+    DOWNLOAD_TASKS_ERROR,
+    GET_TASK_DELETE,
+    GET_TASK_SUCCESS,
+    GET_TASK_ERROR
 } from '../types';
 import axiosClient from '../config/axios';
 
@@ -87,4 +90,16 @@ const downloadTasksSuccess = (tasks) => ({
 const downloadTasksError = () => ({
     type: DOWNLOAD_TASKS_ERROR,
     payload: true
-})
+});
+
+// select and delete the task
+export function deleteTaskAction(id) {
+    return async (dispatch) => {
+        dispatch(getTaskDelete(id));
+    }
+}
+
+const getTaskDelete = (id) => ({
+    type: GET_TASK_DELETE,
+    payload: id
+});

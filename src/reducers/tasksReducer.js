@@ -4,14 +4,18 @@ import {
     ADD_TASK_ERROR,
     START_DOWNLOAD_TASKS,
     DOWNLOAD_TASKS_SUCCESS,
-    DOWNLOAD_TASKS_ERROR
+    DOWNLOAD_TASKS_ERROR,
+    GET_TASK_DELETE,
+    GET_TASK_SUCCESS,
+    GET_TASK_ERROR
 } from '../types';
 
 // each reducer has its own state
 const initialState = {
     tasks: [],
     error: null,
-    loading: false
+    loading: false,
+    deletetask: null
 }
 
 export default function (state = initialState, action) {
@@ -41,6 +45,11 @@ export default function (state = initialState, action) {
                 loading: false,
                 error: null,
                 tasks: action.payload
+            }
+        case GET_TASK_DELETE:
+            return {
+                ...state,
+                deletetask: action.payload
             }
         default:
             return state;
