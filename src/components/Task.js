@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // Redux
 import { useDispatch } from 'react-redux';
@@ -14,9 +15,21 @@ const Task = ({ task }) => {
     // delete confirmation
     const deleteConfirmation = id => {
         // ask to the user
-
-        // pass to the action
-        dispatch(deleteTaskAction(id));
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "No podrás recuperar la tarea si la eliminas!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, elimínala!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                // pass to the action
+                dispatch(deleteTaskAction(id));
+            }
+        })
     }
 
     return (

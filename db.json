@@ -1,13 +1,6 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "name": "Iniciar sesión",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "estimated": "8",
-      "worked": "10"
-    },
-    {
       "id": 2,
       "name": "Configurar entorno",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

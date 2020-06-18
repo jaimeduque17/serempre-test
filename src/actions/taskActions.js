@@ -72,7 +72,7 @@ export function getTasksAction() {
             dispatch(downloadTasksSuccess(response.data));
         } catch (error) {
             console.log(error);
-            dispatch(downloadTasksError());   
+            dispatch(downloadTasksError());
         }
     }
 }
@@ -100,8 +100,16 @@ export function deleteTaskAction(id) {
         try {
             await axiosClient.delete(`/tasks/${id}`);
             dispatch(deleteTaskSuccess());
+
+            // if the task is deleted, show alert
+            Swal.fire(
+                'Eliminado!',
+                'Tu tarea ha sido eliminada.',
+                'success'
+            )
         } catch (error) {
-            
+            console.log(error);
+            dispatch(deleteTaskError());
         }
     }
 }
