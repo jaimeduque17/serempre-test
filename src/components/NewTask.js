@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Redux actions
 import { createTaskAction } from '../actions/taskActions';
 
-const NewTask = () => {
+const NewTask = ({ history }) => {
 
     // state of the component
     const [name, setName] = useState('');
@@ -26,7 +26,7 @@ const NewTask = () => {
         e.preventDefault();
 
         // validate form
-        if(name.trim() === '' || description.trim() === '' || estimated <= 0 || worked <=0) {
+        if (name.trim() === '' || description.trim() === '' || estimated <= 0 || worked <= 0) {
             return;
         }
 
@@ -37,6 +37,9 @@ const NewTask = () => {
             estimated,
             worked
         });
+
+        // redirect
+        history.push('/');
     }
 
     return (

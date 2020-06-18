@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import {
     ADD_TASK,
     ADD_TASK_SUCCESS,
@@ -15,11 +16,26 @@ export function createTaskAction(task) {
 
             // update the state if all gonna be okay
             dispatch(addTaskSuccess(task));
+
+            // success alert
+            Swal.fire(
+                'Correcto',
+                'La tarea se agregó correctamente',
+                'success'
+            );
+
         } catch (error) {
             console.log(error);
 
             // if there is an error change the state
             dispatch(addTaskError(true));
+
+            // error alert
+            Swal.fire({
+                icon: 'error',
+                title: 'Hubo un error',
+                text: 'Hubo un error, intenta de nuevo'
+            });
         }
     }
 }
