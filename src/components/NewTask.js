@@ -15,6 +15,10 @@ const NewTask = () => {
     // useDispatch return a function
     const dispatch = useDispatch();
 
+    // access to the state of the store
+    const loading = useSelector((state) => state.tasks.loading);
+    const error = useSelector((state) => state.tasks.error);
+
     // call the action of taskAction
     const addTask = (task) => dispatch(createTaskAction(task));
 
@@ -94,6 +98,8 @@ const NewTask = () => {
                                 className="btn btn-primary font-weight-bold text-uppercase d-block w-100"
                             >Agregar</button>
                         </form>
+                        {loading ? <p>Loading...</p> : null}
+                        {error ? <p className="alert alert-danger p2 mt-4 text-center">There was an error</p> : null}
                     </div>
                 </div>
             </div>

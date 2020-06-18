@@ -11,7 +11,7 @@ export function createTaskAction(task) {
         dispatch(addTask());
         try {
             // insert in the API
-            await axiosClient.post('tasks', task);
+            await axiosClient.post('/tasks', task);
 
             // update the state if all gonna be okay
             dispatch(addTaskSuccess(task));
