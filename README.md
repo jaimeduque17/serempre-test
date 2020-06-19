@@ -1,7 +1,7 @@
 # serempre-test
 React Single Page Application, la cual permite leer, crear, editar y eliminar tareas, las cuales incluyen información como: el titulo de la tarea, su descripción, tiempo estimado y tiempo trabajado.
 
-## Descrición
+## Descripción
 ReactJS Single Page App con la siguiente caracteristica:
 1. CRUD: Crear, leer, actualizar y eliminar tareas. 
 
