@@ -90,7 +90,7 @@ const NewTask = ({ history }) => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label>Tiempo Estimado Tarea</label>
+                                <label>Tiempo Estimado Tarea (hrs)</label>
                                 <input
                                     type="number"
                                     className="form-control"
@@ -101,7 +101,7 @@ const NewTask = ({ history }) => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label>Tiempo Trabajado Tarea</label>
+                                <label>Tiempo Trabajado Tarea (hrs)</label>
                                 <input
                                     type="number"
                                     className="form-control"

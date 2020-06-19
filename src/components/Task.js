@@ -41,7 +41,7 @@ const Task = ({ task }) => {
     return (
         <tr>
             <td>{name}</td>
-            <td>{description}</td>
+            <td>{`${description.substring(0, 16)}...`}</td>
             <td><span className="font-weight-bold">{estimated}</span> hrs</td>
             <td><span className="font-weight-bold">{worked}</span> hrs</td>
             <td className="actions">

@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# serempre-test
+React Single Page Application, la cual permite leer, crear, editar y eliminar tareas, las cuales incluyen información como: el titulo de la tarea, su descripción, tiempo estimado y tiempo trabajado.
 
-## Available Scripts
+## Descrición
+ReactJS Single Page App con la siguiente caracteristica:
+1. CRUD: Crear, leer, actualizar y eliminar tareas. 
 
-In the project directory, you can run:
 
-### `yarn start`
+## Librerias/Componentes usados
+* create-react-app: Kit de inicio para crear una app reactjs.
+* boostwatch: Para estilos y diseño basico.
+* react-router-dom: Para el enrutamiento entre las pantallas.
+* redux, react-redux: Para la gestión del estado de datos.
+* redux-thunk: biblioteca de middleware redux para despachar acciones asincrónicas.
+* axios: Para las llamadas a la API REST (json-server).
+* sweetalert2: Para la creación de alertas.
+* json-server: API REST de prueba para guardas los datos de las tareas.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Primeros pasos e instalación
+Estas instrucciones le proporcionarán una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba. Consulte la implementación para obtener notas sobre cómo implementar el proyecto en un sistema en vivo.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Primero clone el repositorio en su computador
+```
+git clone https://github.com/jaimeduque17/serempre-test.git
+```
+* Abre tu terminal de preferencia
+```
+$ cd serempre-test
+$ npm install
+```
+* Esto debería instalar todas las dependencias. Una vez hecho
+* Correr 
+``` 
+$ yarn start
+or
+$ npm start
+```
+* para iniciar el servidor.
+* Abrir (http://localhost:3000) en tu explorar de internet. 
+* Esto debería abrir la aplicación de demostración
 
-### `yarn test`
+* Posteriormente abre otra terminal y ejecuta
+```
+npm install -g json-server
+```
+* una vez instalada la REST API de pruebas, ejecutar
+```
+json-server db.json --port 4000
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Authors
+* **Jaime Duque** - (https://github.com/jaimeduque17)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+This project is licensed under the MIT License
