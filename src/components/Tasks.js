@@ -13,6 +13,7 @@ const Tasks = () => {
         // consult API
         const loadTasks = () => dispatch(getTasksAction());
         loadTasks();
+        // eslint-disable-next-line
     }, []);
 
     /// obtain th state

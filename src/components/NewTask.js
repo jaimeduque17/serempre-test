@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Redux actions
 import { createTaskAction } from '../actions/taskActions';
+import { showAlert, hideAlertAction } from '../actions/alertActions';
 
 const NewTask = ({ history }) => {
 
@@ -18,6 +19,7 @@ const NewTask = ({ history }) => {
     // access to the state of the store
     const loading = useSelector((state) => state.tasks.loading);
     const error = useSelector((state) => state.tasks.error);
+    const alert = useSelector((state) => state.alert.alert);
 
     // call the action of taskAction
     const addTask = (task) => dispatch(createTaskAction(task));
@@ -27,8 +29,19 @@ const NewTask = ({ history }) => {
 
         // validate form
         if (name.trim() === '' || description.trim() === '' || estimated <= 0 || worked <= 0) {
+
+            const alert = {
+                msg: 'Todos los campos son obligatorios',
+                classes: 'alert alert-danger text-center text-uppercase p3'
+            }
+
+            dispatch(showAlert(alert));
+
             return;
         }
+
+        // if there are not errors
+        dispatch(hideAlertAction());
 
         // create new task
         addTask({
@@ -50,6 +63,7 @@ const NewTask = ({ history }) => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Agregar Nueva Tarea
                         </h2>
+                        {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
                         <form
                             onSubmit={submitNewTask}
                         >

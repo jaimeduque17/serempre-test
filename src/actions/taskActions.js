@@ -152,7 +152,8 @@ export function editTaskAction(task) {
             await axiosClient.put(`/tasks/${task.id}`, task);
             dispatch(editTaskSuccess(task));
         } catch (error) {
-            
+            console.log(error);
+            dispatch(editTaskError());
         }
     }
 }
@@ -164,4 +165,9 @@ const editTask = () => ({
 const editTaskSuccess = task => ({
     type: TASK_EDITED_SUCCESS,
     payload: task
+});
+
+const editTaskError = () => ({
+    type: TASK_EDITED_ERROR,
+    payload: true
 });
