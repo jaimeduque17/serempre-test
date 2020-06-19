@@ -7,8 +7,12 @@ import {
     DOWNLOAD_TASKS_SUCCESS,
     DOWNLOAD_TASKS_ERROR,
     GET_TASK_DELETE,
-    GET_TASK_SUCCESS,
-    GET_TASK_ERROR
+    TASK_DELETED_SUCCESS,
+    TASK_DELETED_ERROR,
+    GET_TASK_EDIT,
+    START_EDITION_TASK,
+    TASK_EDITED_SUCCESS,
+    TASK_EDITED_ERROR
 } from '../types';
 import axiosClient from '../config/axios';
 
@@ -120,10 +124,44 @@ const getTaskDelete = (id) => ({
 });
 
 const deleteTaskSuccess = () => ({
-    type: GET_TASK_SUCCESS
+    type: TASK_DELETED_SUCCESS
 });
 
 const deleteTaskError = () => ({
-    type: GET_TASK_ERROR,
+    type: TASK_DELETED_ERROR,
     payload: true
+});
+
+// add task in edition
+export function getTaskEdit(task) {
+    return(dispatch) => {
+        dispatch(getTaskAction(task));
+    }
+}
+
+const getTaskAction = task => ({
+    type: GET_TASK_EDIT,
+    payload: task
+});
+
+// edit a registry in the API and the state
+export function editTaskAction(task) {
+    return async (dispatch) => {
+        dispatch(editTask());
+        try {
+            await axiosClient.put(`/tasks/${task.id}`, task);
+            dispatch(editTaskSuccess(task));
+        } catch (error) {
+            
+        }
+    }
+}
+
+const editTask = () => ({
+    type: START_EDITION_TASK
+});
+
+const editTaskSuccess = task => ({
+    type: TASK_EDITED_SUCCESS,
+    payload: task
 });

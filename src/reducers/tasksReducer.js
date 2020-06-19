@@ -6,8 +6,11 @@ import {
     DOWNLOAD_TASKS_SUCCESS,
     DOWNLOAD_TASKS_ERROR,
     GET_TASK_DELETE,
-    GET_TASK_SUCCESS,
-    GET_TASK_ERROR
+    TASK_DELETED_SUCCESS,
+    TASK_DELETED_ERROR,
+    GET_TASK_EDIT,
+    TASK_EDITED_SUCCESS,
+    TASK_EDITED_ERROR
 } from '../types';
 
 // each reducer has its own state
@@ -15,7 +18,8 @@ const initialState = {
     tasks: [],
     error: null,
     loading: false,
-    deletetask: null
+    deletetask: null,
+    edittask: null
 }
 
 export default function (state = initialState, action) {
@@ -34,7 +38,8 @@ export default function (state = initialState, action) {
             }
         case ADD_TASK_ERROR:
         case DOWNLOAD_TASKS_ERROR:
-        case GET_TASK_ERROR:
+        case TASK_DELETED_ERROR:
+        case TASK_EDITED_ERROR:
             return {
                 ...state,
                 loading: false,
@@ -52,11 +57,22 @@ export default function (state = initialState, action) {
                 ...state,
                 deletetask: action.payload
             }
-        case GET_TASK_SUCCESS:
+        case TASK_DELETED_SUCCESS:
             return {
                 ...state,
                 tasks: state.tasks.filter( task => task.id !== state.deletetask),
                 deletetask: null
+            }
+        case GET_TASK_EDIT:
+            return {
+                ...state,
+                edittask: action.payload
+            }
+        case TASK_EDITED_SUCCESS:
+            return {
+                ...state,
+                edittask: null,
+                tasks: state.tasks.map(task => task.id === action.payload ? task = action.payload : task)
             }
         default:
             return state;

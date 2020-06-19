@@ -4,8 +4,8 @@
       "id": 2,
       "name": "Configurar entorno",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "estimated": "12",
-      "worked": "11"
+      "estimated": "5",
+      "worked": "12"
     },
     {
       "id": 3,
@@ -27,13 +27,6 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "estimated": "14",
       "worked": "24"
-    },
-    {
-      "name": "Hola",
-      "description": "pintar la casa",
-      "estimated": 6,
-      "worked": 11,
-      "id": 6
     }
   ]
 }

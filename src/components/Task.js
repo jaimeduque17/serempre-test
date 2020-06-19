@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { deleteTaskAction } from '../actions/taskActions';
+import { deleteTaskAction, getTaskEdit } from '../actions/taskActions';
 
 const Task = ({ task }) => {
 
     const { name, description, estimated, worked, id } = task;
 
     const dispatch = useDispatch();
+    const history = useHistory(); // enable history to redirect
 
     // delete confirmation
     const deleteConfirmation = id => {
@@ -29,7 +30,12 @@ const Task = ({ task }) => {
                 // pass to the action
                 dispatch(deleteTaskAction(id));
             }
-        })
+        });
+    }
+
+    const redirectEdition = task => {
+        dispatch(getTaskEdit(task));
+        history.push(`/tasks/edit/${task.id}`)
     }
 
     return (
@@ -39,9 +45,9 @@ const Task = ({ task }) => {
             <td><span className="font-weight-bold">{estimated}</span> hrs</td>
             <td><span className="font-weight-bold">{worked}</span> hrs</td>
             <td className="actions">
-                <Link to={`/tasks/edit/${id}`} className="btn btn-primary mr-2">
+                <button type="button" onClick={() => redirectEdition(task)} className="btn btn-primary mr-2">
                     Editar
-                </Link>
+                </button>
                 <button type="button" className="btn btn-danger" onClick={() => deleteConfirmation(id)}>Eliminar</button>
             </td>
         </tr>
